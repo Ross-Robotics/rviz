@@ -8,8 +8,9 @@ set(rviz_shiboken_QT_COMPONENTS
 #catkin_lint: ignore_once duplicate_find
 find_package(python_qt_binding REQUIRED)
 include(${python_qt_binding_EXTRAS_DIR}/shiboken_helper.cmake)
+#include(${python_qt_binding_EXTRAS_DIR}/shiboken_helper.cmake)
 
-if(shiboken_helper_FOUND)
+if(TRUE)
   set(_configure_shiboken TRUE)
   if(Shiboken_VERSION VERSION_GREATER "1.1.1")
     if(APPLE AND Shiboken_VERSION VERSION_GREATER "1.2.1")
@@ -17,7 +18,7 @@ if(shiboken_helper_FOUND)
       set(_configure_shiboken TRUE)
     else()
       # shiboken 1.1.2 and higher will segfault until https://bugreports.qt-project.org/browse/PYSIDE-218 is fixed
-      set(_configure_shiboken FALSE)
+      #set(_configure_shiboken FALSE)
       message(WARNING "Shiboken version ${Shiboken_VERSION} would segfault when trying to process rviz (see https://bugreports.qt-project.org/browse/PYSIDE-218). Therefore shiboken bindings are being skipped.")
     endif()
   endif()
