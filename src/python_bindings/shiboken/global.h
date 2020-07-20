@@ -37,6 +37,8 @@
 #define NULL 0
 #endif
 
+// #define QT_ANNOTATE_ACCESS_SPECIFIER(a) __attribute__((annotate(#a)))
+
 #include "pyside_global.h"
 
 #include <QtCore/QtCore>
